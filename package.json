@@ -1,0 +1,26 @@
+{
+  "name": "node_dictionary",
+  "version": "1.0.0",
+  "description": "Add words meaning",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bugToaster/per_dictionay.git"
+  },
+  "dependencies": {
+    "express": "*",
+    "body-parser": "*",
+    "mongoose": "*",
+    "utf-8": "^1.0.0",
+    "ejs": "^2.5.7"
+  },
+  "author": "Anjan Das",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bugToaster/per_dictionay/issues"
+  },
+  "homepage": "https://github.com/bugToaster/per_dictionay#readme"
+}
