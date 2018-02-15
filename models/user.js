@@ -1,6 +1,7 @@
+const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
-let Schema  = mongoose.Schema;
-let UserSchema = Schema({
+const Schema  = mongoose.Schema;
+var UserSchema = Schema({
     username:{
         type:String,
         unique:true,
@@ -29,11 +30,20 @@ let UserSchema = Schema({
 
     created_date:{
         type:Date,
-        required:true
     },
     updated_date:{
         type:Date
     }
 });
-var userDatas = module.exports= mongoose.model('user_datas',userSchema);
+var userDatas = module.exports= mongoose.model('User',UserSchema);
 
+UserSchema.pre('save', function (next) {
+    var user = this;
+    bcrypt.hash(user.password, 10, function (err, hash){
+        if (err) {
+            return next(err);
+        }
+        user.password = hash;
+        next();
+    })
+});
